@@ -2,6 +2,7 @@
 # https://codefresh.io/docs/docs/yaml-examples/examples/
 
 version: "1.0"
+# Stages can help you organize your steps in stages
 stages:
   - "prepare"
   - "verify"
@@ -46,7 +47,7 @@ steps:
     stage: verify
     image: maven:3.5.2-jdk-8-alpine
     commands:
-     - mvn -Dmaven.repo.local=/codefresh/volume/m2_repository verify -Dserver.host=http://my-spring-app
+     - mvn -Dmaven.repo.local=/codefresh/volume/m2_repository verify -Dserver.host=http://my-spring-app -Dsonar.organization=kostis-codefresh-github
     services:
       composition:
         my-spring-app:
@@ -59,3 +60,10 @@ steps:
         image: byrnedo/alpine-curl
         commands:
           - "curl http://my-spring-app:8080/"
+  sonar_scan:
+    title: Sonar Scan
+    stage: verify
+    image: 'maven:3.8.1-jdk-11-slim'
+    commands:
+      - mvn -Dmaven.repo.local=/codefresh/volume/m2_repository sonar:sonar -Dsonar.login=${{SONAR_TOKEN}} -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=kostis-codefresh-github
+      
