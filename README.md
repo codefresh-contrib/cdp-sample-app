@@ -37,16 +37,13 @@ docker run -p 8080:8080 my-spring-boot-sample
 mvn verify
 ```
 
-
-```
-
 ## To use this project in Codefresh 
 
 
 There is also a [codefresh.yaml](codefresh.yaml) for easy usage with the [Codefresh](codefresh.io) CI/CD platform.
 
 
-More details can be found in [Codefresh documentation](https://codefresh.io/docs/docs/ci-cd-guides/continuous-deployment/)
+More details can be found in [Codefresh documentation](https://codefresh.io/docs/docs/ci-cd-guides/unlimited-testing-environments/)
 
 
 Enjoy!
