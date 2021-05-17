@@ -37,9 +37,6 @@ docker run -p 8080:8080 my-spring-boot-sample
 mvn verify
 ```
 
-
-```
-
 ## To use this project in Codefresh 
 
 
