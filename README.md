@@ -1,4 +1,4 @@
-# Example Continuous Deployment application with Codefresh
+# Unlimited testing environments with Codefresh and Kubernetes
 
 
 This is an example Java application that uses Spring Boot 2, Maven and Docker.
